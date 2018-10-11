@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="60 seconds" debug="false">
+    <contextName>Lu1FFy</contextName>
+    <property name="log.path" value="logs"/>
+
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>DEBUG</level>
+        </filter>
+        <encoder>
+            <Pattern>%d{HH:mm:ss.SSS} %contextName [%thread] %-5level %logger{36} - %msg%n</Pattern>
+        </encoder>
+    </appender>
+
+    <appender name="serviceAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${log.path}/service.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${log.path}/service.%d{yyy-MM-dd}.log</fileNamePattern>
+            <maxHistory>15</maxHistory>
+            <totalSizeCap>1GB</totalSizeCap>
+        </rollingPolicy>
+        <encoder>
+            <Pattern>%d{HH:mm:ss.SSS} %contextName [%thread] %-5level %logger{36} - %msg%n</Pattern>
+        </encoder>
+    </appender>
+
+    <appender name="scheduleAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${log.path}/schdule.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${log.path}/schdule.%d{yyy-MM-dd}.log</fileNamePattern>
+            <maxHistory>15</maxHistory>
+            <totalSizeCap>1GB</totalSizeCap>
+        </rollingPolicy>
+        <encoder>
+            <Pattern>%d{HH:mm:ss.SSS} %contextName [%thread] %-5level %logger{36} - %msg%n</Pattern>
+        </encoder>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="console"/>
+        <appender-ref ref="serviceAppender"/>
+    </root>
+
+
+	<logger name="org.meng.demo.dao.sys" level="DEBUG"/>
+
+</configuration>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.meng.demo.dao.sys.SysMenuDao">
+   <!-- <select id="selectPermList" resultType="java.lang.String">
+      SELECT m.* FROM sys_user_role LEFT JOIN sys_menu_role ON sys_user_role.role_id= sys_menu_role.role_id
+      LEFT JOIN sys_menu m ON sys_menu_role.menu_id = m.id WHERE sys_user_role.user_id=#{userId}
+    </select>-->
+</mapper>
+
